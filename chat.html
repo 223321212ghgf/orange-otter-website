@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10100f">
+<meta name="description" content="Chat with Orange Otter. A friendly AI workspace, powered by Llama when the secure model connection is ready.">
+<title>Orange Otter Chat</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<style>
+:root{color-scheme:dark;--bg:#10100f;--side:#151411;--panel:#1b1915;--panel2:#211e19;--line:#302d27;--text:#f7f2e9;--muted:#a69e92;--orange:#f28b36;--orange2:#ffb16f;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);height:100vh;overflow:hidden}button,textarea{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:268px minmax(0,1fr);height:100vh}.sidebar{background:var(--side);border-right:1px solid var(--line);display:flex;flex-direction:column;padding:19px 15px;min-width:0}.brand{display:flex;align-items:center;gap:11px;padding:2px 6px 23px;color:var(--text);text-decoration:none;font-size:17px;font-weight:780;letter-spacing:-.5px}.brand-mark{width:37px;height:37px;display:grid;place-items:center;background:linear-gradient(145deg,#ffb36f,#e87925);border-radius:12px;box-shadow:0 5px 22px #f28b3633}.brand-mark svg{width:26px;height:26px}.new-chat{width:100%;border:1px solid #624326;background:linear-gradient(135deg,#f7a65c,#e77a28);color:#26160b;border-radius:12px;padding:12px 14px;text-align:left;font-size:12px;font-weight:800;display:flex;align-items:center;gap:10px}.new-chat span{font-size:19px;line-height:12px}.side-label{font-size:9px;color:#7d766c;text-transform:uppercase;letter-spacing:1.5px;font-weight:800;margin:28px 8px 10px}.history{display:flex;flex-direction:column;gap:4px;overflow:auto;min-height:0}.history-item{border:0;background:transparent;color:#bdb5a9;border-radius:9px;padding:10px 11px;text-align:left;font-size:11px;white-space:nowrap;text-overflow:ellipsis;overflow:hidden}.history-item:hover,.history-item.active{background:#27231d;color:#fff}.sidebar-bottom{margin-top:auto;border-top:1px solid var(--line);padding:16px 5px 2px}.model-label{display:flex;gap:11px;align-items:center;padding:10px 9px;border:1px solid #433425;background:#201a14;border-radius:12px}.llama-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;background:#3a2718;font-size:20px}.model-label strong{font-size:10px;display:block}.model-label small{font-size:9px;color:#a18e7a;display:block;margin-top:3px}.side-links{display:flex;gap:16px;padding:16px 8px 4px}.side-links a{color:#80796f;font-size:10px;text-decoration:none}.side-links a:hover{color:#fff}.main{display:flex;flex-direction:column;min-width:0;height:100vh;position:relative}.top{height:67px;border-bottom:1px solid #29261f;display:flex;align-items:center;justify-content:space-between;padding:0 27px;flex:none}.top-left{display:flex;align-items:center;gap:13px}.back{border:1px solid var(--line);background:#1b1915;color:#cfc5b8;border-radius:9px;padding:8px 11px;font-size:10px;text-decoration:none}.page-title{font-size:12px;font-weight:750}.page-sub{color:#898176;font-size:9px;margin-top:2px}.status{display:flex;align-items:center;gap:7px;border:1px solid #574027;background:#2a2016;color:#edb47f;border-radius:99px;padding:7px 10px;font-size:9px}.status-dot{height:6px;width:6px;border-radius:50%;background:#e59a52;box-shadow:0 0 8px #e59a52}.content{flex:1;overflow:auto;padding:30px 22px 15px;display:flex;flex-direction:column;align-items:center}.welcome{width:min(740px,100%);margin:auto;text-align:center;padding:28px 0 50px}.welcome-mark{margin:0 auto 22px;width:65px;height:65px;border-radius:21px;background:linear-gradient(145deg,#ffb36f,#e87925);display:grid;place-items:center;color:#2b180c;font-size:29px;font-weight:900;box-shadow:0 10px 35px #f28b3633}.welcome h1{font-size:clamp(32px,5vw,48px);line-height:1.08;letter-spacing:-2px;margin:0 0 13px}.welcome h1 span{color:var(--orange2)}.welcome p{font-size:13px;color:#aaa195;line-height:1.7;margin:0 auto;max-width:500px}.suggestions{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:30px;text-align:left}.suggestion{background:#1a1814;border:1px solid #363128;color:#e9dfd2;border-radius:14px;padding:14px;font-size:10px;line-height:1.5}.suggestion:hover{border-color:#8d5a31;background:#211b15}.suggestion strong{display:block;color:#ffb16f;font-size:11px;margin-bottom:4px}.messages{width:min(790px,100%);display:flex;flex-direction:column;gap:18px;padding:15px 0 35px}.msg{display:flex;gap:11px;align-items:flex-start;max-width:95%}.msg.user{align-self:flex-end;flex-direction:row-reverse}.avatar{width:30px;height:30px;flex:none;border-radius:10px;background:linear-gradient(145deg,#ffb36f,#e87925);color:#2b180c;display:grid;place-items:center;font-size:11px;font-weight:900}.msg.user .avatar{background:#30271e;color:#f5bb86;border:1px solid #60432b}.bubble{font-size:12px;line-height:1.7;color:#e9e0d5;background:#211f1a;border:1px solid #3a352d;border-radius:5px 14px 14px 14px;padding:12px 15px;white-space:pre-wrap;overflow-wrap:anywhere}.msg.user .bubble{background:#3b291c;border-color:#65452b;border-radius:14px 5px 14px 14px}.notice{font-size:10px;line-height:1.6;color:#a99d8e;border:1px solid #4d3b29;background:#211a13;border-radius:11px;padding:11px 13px;margin:0 0 8px 41px}.composer-area{padding:12px 22px 18px;border-top:1px solid #29261f;background:linear-gradient(180deg,#10100f,#12110f);flex:none}.composer{width:min(790px,100%);margin:auto;border:1px solid #464035;border-radius:17px;background:#1b1915;display:flex;align-items:flex-end;gap:10px;padding:10px 11px 10px 16px;box-shadow:0 12px 40px #0004}.composer:focus-within{border-color:#b8753c;box-shadow:0 0 0 3px #f28b3617,0 12px 40px #0004}.composer textarea{flex:1;min-width:0;resize:none;max-height:150px;min-height:27px;background:transparent;border:0;outline:0;color:#f7f2e9;font:inherit;font-size:12px;line-height:1.6;padding:4px 0}.composer textarea::placeholder{color:#817a70}.send{width:36px;height:36px;border:0;border-radius:11px;background:var(--orange);color:#25160b;font-size:20px;font-weight:800}.send:hover{background:var(--orange2)}.send:disabled{opacity:.4;cursor:not-allowed}.composer-note{width:min(790px,100%);margin:9px auto 0;display:flex;align-items:center;justify-content:space-between;color:#777166;font-size:9px}.composer-note strong{color:#c49b73;font-weight:600}.mobile-brand{display:none}
+@media(max-width:760px){.app{grid-template-columns:1fr}.sidebar{display:none}.top{padding:0 14px;height:61px}.mobile-brand{display:flex}.back{padding:8px}.page-sub{display:none}.status{font-size:8px}.content{padding:15px 15px}.welcome{padding:25px 0 35px}.welcome h1{font-size:36px}.suggestions{grid-template-columns:1fr}.suggestion{padding:11px}.composer-area{padding:10px 12px 14px}.composer-note{font-size:8px}.messages{gap:13px}.msg{max-width:100%}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside class="sidebar">
+  <a class="brand" href="index.html"><span class="brand-mark"><svg viewBox="0 0 40 40" fill="none"><path d="M9 22c-1-6 3-12 10-12 6 0 11 5 11 11 0 7-5 12-12 12-5 0-9-3-9-8v-3Z" stroke="#2b180c" stroke-width="2.1" stroke-linecap="round"/><path d="M13 13 10 8m17 5 4-4M15 21h.1m10 0h.1m-9 7c3 2 7 2 10-1" stroke="#2b180c" stroke-width="2.2" stroke-linecap="round"/><path d="M7 27c-2 5-1 8 3 8" stroke="#2b180c" stroke-width="2" stroke-linecap="round"/></svg></span>Orange Otter</a>
+  <button class="new-chat" id="newChat"><span>＋</span> New chat</button>
+  <div class="side-label">Recent conversations</div>
+  <div class="history" id="history"></div>
+  <div class="sidebar-bottom">
+    <div class="model-label"><div class="llama-icon">🦙</div><div><strong>Llama 3.2 1B Instruct</strong><small>Planned AI model · not connected</small></div></div>
+    <div class="side-links"><a href="index.html">Home</a><a href="https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct" target="_blank" rel="noopener noreferrer">About Llama ↗</a></div>
+  </div>
+</aside>
+<main class="main">
+  <header class="top">
+    <div class="top-left">
+      <a class="back mobile-brand" href="index.html">← Home</a>
+      <div><div class="page-title">Orange Otter <span style="color:#e99a58">/</span> Chat</div><div class="page-sub">Your space for questions, ideas, and projects</div></div>
+    </div>
+    <span class="status"><i class="status-dot"></i><span id="connectionText">Preview · AI offline</span></span>
+  </header>
+  <section class="content" id="content">
+    <div class="welcome" id="welcome">
+      <div class="welcome-mark">O</div>
+      <h1>What are we working on <span>today?</span></h1>
+      <p>Ask a question, explore an idea, or get a project moving. This is the new Orange Otter chat page.</p>
+      <div class="suggestions">
+        <button class="suggestion" data-prompt="Help me brainstorm a fun project."><strong>✦ Brainstorm</strong>Turn a spark into a project.</button>
+        <button class="suggestion" data-prompt="Explain a complicated topic in simple terms."><strong>⌘ Learn something</strong>Make a tricky topic easier.</button>
+        <button class="suggestion" data-prompt="Help me make a plan for my next goal."><strong>↗ Make a plan</strong>Break a big goal into steps.</button>
+      </div>
+    </div>
+    <div class="messages" id="messages" hidden></div>
+  </section>
+  <div class="composer-area">
+    <form class="composer" id="chatForm"><textarea id="chatInput" rows="1" maxlength="4000" placeholder="Message Orange Otter..." aria-label="Message Orange Otter"></textarea><button class="send" id="sendBtn" type="submit" aria-label="Send message">↑</button></form>
+    <div class="composer-note"><span><strong>🦙 Llama 3.2 1B</strong> · Planned model</span><span>Preview only · Messages stay in this browser</span></div>
+  </div>
+</main>
+</div>
+<script>
+(()=>{
+const STORAGE_KEY='orangeOtterWebChatsV1';
+const API_ENDPOINT=''; // Connect a secure HTTPS backend here. Never put an API key in this file.
+const input=document.getElementById('chatInput'),form=document.getElementById('chatForm'),messagesEl=document.getElementById('messages'),welcome=document.getElementById('welcome'),historyEl=document.getElementById('history'),content=document.getElementById('content'),statusEl=document.getElementById('connectionText'),sendBtn=document.getElementById('sendBtn');
+let chats=[],activeId=null;
+try{const saved=JSON.parse(localStorage.getItem(STORAGE_KEY)||'[]');if(Array.isArray(saved))chats=saved;}catch(_){chats=[];}
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(chats));}catch(_){statusEl.textContent='Local storage unavailable';}}
+function active(){return chats.find(c=>c.id===activeId);}
+function escapeTitle(s){return (s||'New conversation').replace(/\s+/g,' ').slice(0,34);}
+function renderHistory(){
+ historyEl.innerHTML='';
+ chats.slice().reverse().forEach(chat=>{
+  const b=document.createElement('button');b.className='history-item'+(chat.id===activeId?' active':'');b.textContent=chat.title;b.title=chat.title;b.addEventListener('click',()=>{activeId=chat.id;render();});historyEl.appendChild(b);
+ });
+}
+function render(){
+ const chat=active();renderHistory();welcome.hidden=!!(chat&&chat.messages.length);messagesEl.hidden=!chat||chat.messages.length===0;messagesEl.innerHTML='';
+ if(chat)chat.messages.forEach(m=>{
+  if(m.role==='notice'){const n=document.createElement('div');n.className='notice';n.textContent=m.content;messagesEl.appendChild(n);return;}
+  const row=document.createElement('div');row.className='msg '+(m.role==='user'?'user':'assistant');
+  const avatar=document.createElement('div');avatar.className='avatar';avatar.textContent=m.role==='user'?'Y':'O';
+  const bubble=document.createElement('div');bubble.className='bubble';bubble.textContent=m.content;row.append(avatar,bubble);messagesEl.appendChild(row);
+ });
+ content.scrollTop=content.scrollHeight;
+}
+function newChat(){const id=String(Date.now())+Math.random().toString(36).slice(2,7);chats.push({id,title:'New conversation',messages:[]});activeId=id;save();render();input.focus();}
+document.getElementById('newChat').addEventListener('click',newChat);
+document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{input.value=b.dataset.prompt;input.focus();}));
+function ensureChat(){if(!activeId||!active())newChat();return active();}
+async function send(message){
+ const chat=ensureChat();chat.messages.push({role:'user',content:message});if(chat.title==='New conversation')chat.title=escapeTitle(message);save();render();
+ if(!API_ENDPOINT){
+  chat.messages.push({role:'notice',content:'Your message is saved in this browser preview. The secure Llama server is not connected yet, so this page has not sent your message to an AI or generated an AI reply.'});
+  save();render();return;
+ }
+ statusEl.textContent='Connecting…';sendBtn.disabled=true;
+ try{
+  const response=await fetch(API_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'meta-llama/Llama-3.2-1B-Instruct',messages:chat.messages.filter(m=>m.role==='user'||m.role==='assistant')})});
+  if(!response.ok)throw new Error('Server error '+response.status);
+  const data=await response.json();const answer=data?.choices?.[0]?.message?.content||data?.response;
+  if(typeof answer!=='string'||!answer.trim())throw new Error('No reply returned');
+  chat.messages.push({role:'assistant',content:answer});statusEl.textContent='Connected';
+ }catch(_){chat.messages.push({role:'notice',content:'I could not reach the Orange Otter AI server. Please try again later.'});statusEl.textContent='AI unavailable';}
+ finally{sendBtn.disabled=false;save();render();}
+}
+form.addEventListener('submit',e=>{e.preventDefault();const value=input.value.trim();if(!value)return;input.value='';input.style.height='auto';send(value);});
+input.addEventListener('input',()=>{input.style.height='auto';input.style.height=Math.min(input.scrollHeight,150)+'px';});
+input.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();form.requestSubmit();}});
+if(chats.length){activeId=chats[chats.length-1].id;render();}else render();
+})();
+</script>
+</body>
+</html>
