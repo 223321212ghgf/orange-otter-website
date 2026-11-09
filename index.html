@@ -12,6 +12,42 @@
 @media(max-width:900px){.hero-grid{gap:25px}.hero-art{min-height:390px}.voice-grid{gap:35px}.features{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.wrap{width:min(var(--max),calc(100% - 34px))}.topbar{height:68px}.nav{display:none;position:absolute;top:68px;left:0;right:0;padding:17px;background:#171714;border:1px solid #302d27;border-radius:0 0 15px 15px;flex-direction:column;gap:18px;align-items:stretch}.nav.open{display:flex}.nav-cta{text-align:center}.menu{display:block}.hero{padding:63px 0 55px}.hero-grid,.voice-grid{grid-template-columns:1fr}.hero h1{font-size:53px;letter-spacing:-3px}.lead{font-size:15px}.hero-art{min-height:375px;margin-top:5px}.otter-card{max-width:440px}.trust-inner{gap:17px 25px}.section{padding:74px 0}.features{grid-template-columns:1fr}.feature{min-height:0}.voice-demo{min-height:310px}.steps{grid-template-columns:1fr;gap:6px}.step{padding:17px 4px}.pricing-card{padding:25px;flex-direction:column;align-items:flex-start}.price-tag small{text-align:left}.footer-inner{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}.voice-copy{order:0}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
+
+/* Chat preview */
+.chat-section{background:linear-gradient(180deg,#15130f,#11100f 72%);border-top:1px solid #29251f;border-bottom:1px solid #29251f}
+.chat-grid{display:grid;grid-template-columns:.78fr 1.22fr;gap:50px;align-items:center}
+.chat-copy h2{font-size:clamp(35px,4vw,50px);letter-spacing:-2px;line-height:1.07;margin:14px 0 18px}
+.chat-copy p{font-size:14px;line-height:1.8;color:#b2a99d}
+.model-card{margin-top:26px;padding:18px;border:1px solid #493626;background:#1d1914;border-radius:17px;display:flex;align-items:center;gap:14px}
+.model-mark{width:48px;height:48px;display:grid;place-items:center;border-radius:14px;background:#392719;font-size:25px;flex:none}
+.model-info{min-width:0;flex:1}
+.model-info strong{display:block;font-size:13px;color:#f5e9dc}
+.model-info span{display:block;font-size:10px;color:#9f9589;margin-top:3px}
+.model-link{font-size:11px;color:#ffb16f;white-space:nowrap}
+.chat-shell{border:1px solid #44382b;border-radius:24px;background:linear-gradient(145deg,#201d18,#151411);overflow:hidden;box-shadow:0 25px 70px #0006}
+.chat-head{display:flex;align-items:center;justify-content:space-between;padding:18px 20px;border-bottom:1px solid #393229}
+.chat-brand{display:flex;gap:11px;align-items:center}
+.chat-avatar{width:34px;height:34px;display:grid;place-items:center;border-radius:11px;background:linear-gradient(145deg,#ffb36f,#e87925);color:#2b180c;font-weight:900}
+.chat-brand strong{display:block;font-size:12px}
+.chat-brand small{display:block;font-size:10px;color:#938a7e;margin-top:2px}
+.chat-status{font-size:10px;color:#f1b477;border:1px solid #5b3b22;background:#302014;border-radius:30px;padding:6px 9px}
+.chat-log{height:340px;overflow:auto;padding:22px;display:flex;flex-direction:column;gap:15px;scroll-behavior:smooth}
+.chat-message{display:flex;gap:9px;align-items:flex-start;max-width:88%}
+.chat-message.user{align-self:flex-end;flex-direction:row-reverse}
+.chat-message .chat-avatar{width:26px;height:26px;border-radius:8px;font-size:10px;flex:none}
+.chat-bubble{font-size:12px;line-height:1.65;color:#e9e0d5;background:#2a2721;border:1px solid #3d382f;border-radius:5px 13px 13px 13px;padding:11px 13px;white-space:pre-wrap;overflow-wrap:anywhere}
+.chat-message.user .chat-bubble{background:#3b291c;border-color:#66452b;border-radius:13px 5px 13px 13px}
+.chat-empty-note{color:#8d8579;font-size:10px;text-align:center;margin:0 22px 13px}
+.chat-compose{display:flex;gap:10px;align-items:flex-end;padding:14px;border-top:1px solid #393229}
+.chat-compose textarea{min-height:48px;max-height:120px;resize:vertical;flex:1;background:#12110f;border:1px solid #403b32;border-radius:13px;padding:13px;color:#f7f2e9;font:inherit;font-size:12px;outline:none}
+.chat-compose textarea:focus{border-color:#c77b3b;box-shadow:0 0 0 3px #f28b361a}
+.chat-compose button{height:46px;width:48px;flex:none;border:0;border-radius:13px;background:#f28b36;color:#24170d;font-size:20px;font-weight:800;cursor:pointer}
+.chat-compose button:hover{background:#ffad62}
+.chat-footnote{padding:0 18px 15px;color:#8c8478;font-size:10px;line-height:1.5}
+.chat-footnote a{color:#ffb16f;text-decoration:underline}
+@media(max-width:800px){.chat-grid{grid-template-columns:1fr;gap:28px}.chat-log{height:300px}.chat-copy{max-width:620px}}
+@media(prefers-reduced-motion:reduce){.chat-log{scroll-behavior:auto}}
+
 </style>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -24,7 +60,7 @@
     <span class="brand-mark"><svg viewBox="0 0 40 40" fill="none" aria-hidden="true"><path d="M9 22c-1-6 3-12 10-12 6 0 11 5 11 11 0 7-5 12-12 12-5 0-9-3-9-8v-3Z" stroke="#2b180c" stroke-width="2.1" stroke-linecap="round"/><path d="M13 13 10 8m17 5 4-4M15 21h.1m10 0h.1m-9 7c3 2 7 2 10-1" stroke="#2b180c" stroke-width="2.2" stroke-linecap="round"/><path d="M7 27c-2 5-1 8 3 8" stroke="#2b180c" stroke-width="2" stroke-linecap="round"/></svg></span>
     <span>Orange Otter</span>
   </a>
-  <nav class="nav" id="nav"><a href="#features">Features</a><a href="#voice">Voice chat</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a class="nav-cta" href="#download">Explore the beta <span aria-hidden="true">↗</span></a></nav>
+  <nav class="nav" id="nav"><a href="#features">Features</a><a href="#chat">AI chat</a><a href="#voice">Voice chat</a><a href="#how">How it works</a><a href="#pricing">Pricing</a><a class="nav-cta" href="#download">Explore the beta <span aria-hidden="true">↗</span></a></nav>
   <button class="menu" id="menu" aria-label="Open menu" aria-expanded="false">☰</button>
 </header>
 <main id="top">
@@ -34,7 +70,7 @@
       <span class="eyebrow"><i class="dot"></i> A curious new AI companion</span>
       <h1>A little more <span>curious.</span><br>A lot more useful.</h1>
       <p class="lead">Meet Orange Otter — a friendly AI workspace for your ideas, questions, projects, and conversations. Just open it up and get going.</p>
-      <div class="hero-actions"><a class="button" href="#download">Discover Orange Otter <span>↗</span></a><a class="button secondary" href="#features">See what it can do</a></div>
+      <div class="hero-actions"><a class="button" href="#chat">Try the chat preview <span>↗</span></a><a class="button secondary" href="#features">See what it can do</a></div>
       <p class="microcopy">Desktop experience · In development · Built one curious step at a time</p>
     </div>
     <div class="hero-art" aria-label="Illustration of the Orange Otter chat interface">
@@ -52,6 +88,36 @@
   </div>
 </section>
 <div class="trust-row"><div class="wrap trust-inner"><span>✦ <b>Chat</b> through your ideas</span><span>◉ <b>Talk</b> naturally</span><span>▤ <b>Organize</b> conversations</span><span>⌘ <b>Create</b> with confidence</span></div></div>
+
+<section class="section chat-section" id="chat">
+  <div class="wrap chat-grid">
+    <div class="chat-copy">
+      <span class="kicker">Meet Orange Otter AI</span>
+      <h2>Your next conversation starts here.</h2>
+      <p>We’re bringing the Orange Otter chat experience onto the website, with a clean message box and a Llama model behind it. The chat interface is ready to preview; the secure AI server connection is the next setup step.</p>
+      <div class="model-card">
+        <div class="model-mark" aria-hidden="true">🦙</div>
+        <div class="model-info"><strong>Llama 3.2 1B Instruct</strong><span>Model planned for Orange Otter chat · by Meta</span></div>
+        <a class="model-link" href="https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct" target="_blank" rel="noopener noreferrer">Model details ↗</a>
+      </div>
+    </div>
+    <div class="chat-shell" aria-label="Orange Otter website chat preview">
+      <div class="chat-head">
+        <div class="chat-brand"><div class="chat-avatar" aria-hidden="true">O</div><div><strong>Orange Otter</strong><small>Website chat preview</small></div></div>
+        <span class="chat-status" id="chatStatus">AI connection next</span>
+      </div>
+      <div class="chat-log" id="chatLog" aria-live="polite">
+        <div class="chat-message"><div class="chat-avatar" aria-hidden="true">O</div><div class="chat-bubble">Hey! Welcome to Orange Otter. This is the new website chat space. The Llama connection is still being set up, but you can try the interface.</div></div>
+      </div>
+      <form class="chat-compose" id="chatForm">
+        <textarea id="chatInput" rows="1" maxlength="2000" aria-label="Message Orange Otter" placeholder="Message Orange Otter..." required></textarea>
+        <button type="submit" aria-label="Send message">↑</button>
+      </form>
+      <div class="chat-footnote" id="chatFootnote">Preview mode: messages stay in this page and are not sent to an AI server yet. The Llama model will be connected through a private backend, not a browser-exposed API key.</div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="features">
   <div class="wrap">
     <div class="section-head"><span class="kicker">Meet your new sidekick</span><h2>Useful tools. A friendly feel.</h2><p>Orange Otter is being shaped around the things that make an AI workspace feel simple, capable, and genuinely enjoyable to use.</p></div>
@@ -79,6 +145,40 @@
 <footer class="footer"><div class="wrap footer-inner"><div class="small-brand"><span class="brand-mark"><svg viewBox="0 0 40 40" fill="none"><path d="M9 22c-1-6 3-12 10-12 6 0 11 5 11 11 0 7-5 12-12 12-5 0-9-3-9-8v-3Z" stroke="#2b180c" stroke-width="2.1"/><path d="M13 13 10 8m17 5 4-4M15 21h.1m10 0h.1m-9 7c3 2 7 2 10-1" stroke="#2b180c" stroke-width="2.2" stroke-linecap="round"/></svg></span>Orange Otter</div><div>© <span id="year"></span> Orange Otter. Made with curiosity.</div><div class="footer-links"><a href="#features">Features</a><a href="#pricing">Pricing</a><a href="#download">Download</a></div></div></footer>
 <script>
 const menu=document.getElementById('menu'),nav=document.getElementById('nav');menu.addEventListener('click',()=>{const open=nav.classList.toggle('open');menu.setAttribute('aria-expanded',String(open));menu.textContent=open?'✕':'☰'});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{nav.classList.remove('open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));document.getElementById('year').textContent=new Date().getFullYear();
+
+/* Orange Otter website chat */
+const chatForm=document.getElementById('chatForm');
+if(chatForm){
+  const chatLog=document.getElementById('chatLog');
+  const chatInput=document.getElementById('chatInput');
+  const chatStatus=document.getElementById('chatStatus');
+  const chatFootnote=document.getElementById('chatFootnote');
+  const OTTER_CHAT_ENDPOINT=''; // Set only to a secured HTTPS backend endpoint. Never put provider API keys in this file.
+  const chatHistory=[{role:'assistant',content:'Hey! Welcome to Orange Otter. This is the new website chat space. The Llama connection is still being set up, but you can try the interface.'}];
+  function addChatMessage(role,text){
+    const row=document.createElement('div');row.className='chat-message'+(role==='user'?' user':'');
+    if(role!=='user'){const avatar=document.createElement('div');avatar.className='chat-avatar';avatar.textContent='O';avatar.setAttribute('aria-hidden','true');row.appendChild(avatar);}
+    const bubble=document.createElement('div');bubble.className='chat-bubble';bubble.textContent=text;row.appendChild(bubble);chatLog.appendChild(row);chatLog.scrollTop=chatLog.scrollHeight;return bubble;
+  }
+  chatForm.addEventListener('submit',async(event)=>{
+    event.preventDefault();const message=chatInput.value.trim();if(!message)return;
+    chatInput.value='';chatHistory.push({role:'user',content:message});addChatMessage('user',message);
+    if(!OTTER_CHAT_ENDPOINT){
+      chatHistory.pop();
+      addChatMessage('assistant','Thanks! The chat interface is working, but the AI server is not connected yet. Your message was not sent anywhere. We still need to set up the secure Llama backend.');
+      return;
+    }
+    const pending=addChatMessage('assistant','Thinking…');chatStatus.textContent='Connecting…';
+    try{
+      const response=await fetch(OTTER_CHAT_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'meta-llama/Llama-3.2-1B-Instruct',messages:chatHistory})});
+      if(!response.ok)throw new Error('AI server returned '+response.status);
+      const data=await response.json();const answer=data?.choices?.[0]?.message?.content||data?.response||data?.message;
+      if(typeof answer!=='string'||!answer.trim())throw new Error('The AI server returned an empty reply.');
+      pending.textContent=answer;chatHistory.push({role:'assistant',content:answer});chatStatus.textContent='Connected';
+    }catch(error){pending.textContent='I could not reach the AI server. Please try again later.';chatStatus.textContent='Offline';}
+  });
+}
+
 </script>
 </body>
 </html>
